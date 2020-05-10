@@ -1,4 +1,7 @@
 import React from 'react';
+import {
+  ButtonToolbar, Button, FormGroup, FormControl, ControlLabel, InputGroup,
+} from 'react-bootstrap';
 import TextInput from './TextInput';
 import NumInput from './NumInput';
 import graphQLFetch from './graphQlFetch';
@@ -122,12 +125,12 @@ export default class EditProduct extends React.Component {
                 <td>
                   Image URL
                   <br />
-                  <input type="text" name="image" defaultValue={this.state.product.Image} onChange={this.handleChange}/>
+                  <input type="text" name="image" defaultValue={this.state.product.Image} onChange={this.handleChange} />
                 </td>
               </tr>
             </tbody>
           </table>
-          <button type="button" onClick={this.handleSubmit}>Save Changes</button>
+          <Button bsSize="xsmall" bsStyle="primary" onClick={this.handleSubmit}>Save Changes</Button>
         </form>
       </div>
 

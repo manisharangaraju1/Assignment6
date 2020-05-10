@@ -1,4 +1,5 @@
 import React from 'react';
+import { Label, Panel } from 'react-bootstrap';
 import ProductTable from './ProductTable';
 import ProductAdd from './ProductAdd';
 import graphQLFetch from './graphQlFetch';
@@ -58,14 +59,26 @@ export default class ProductList extends React.Component {
     const allProducts = this.state.products;
     return (
       <div>
-        <h1>My Company MyInventory</h1>
-        Showing all available products
-        <hr />
-        <ProductTable products={allProducts} deleteProduct={this.deleteProduct} />
-        <hr />
-        Add a new product to inventory
-        <hr />
-        <ProductAdd createProduct={this.createProduct} />
+        <Label>My Company MyInventory</Label>
+        <Panel>
+          <Panel.Heading>
+            <Panel.Title toggle>Show all available products</Panel.Title>
+          </Panel.Heading>
+          <Panel.Body collapsible>
+            <hr />
+            <ProductTable products={allProducts} deleteProduct={this.deleteProduct} />
+            <hr />
+            <Panel>
+              <Panel.Heading>
+                <Panel.Title toggle>Add a new Product</Panel.Title>
+              </Panel.Heading>
+              <Panel.Body collapsible>
+                <ProductAdd createProduct={this.createProduct} />
+              </Panel.Body>
+            </Panel>
+          </Panel.Body>
+        </Panel>
+
       </div>
     );
   }
